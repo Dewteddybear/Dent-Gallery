@@ -7,13 +7,14 @@
   <meta name="keywords" content="IMAGE COLLECTION">
   <meta name="description" content="">
   <title>Document</title>
-  <link rel="stylesheet" href="../css/nicepage.css" media="screen">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/Document.css" media="screen">
+  <link rel="stylesheet" href="../css/nicepage.css" media="screen">
   <script class="u-script" type="text/javascript" src="../js/jquery.js" defer=""></script>
   <script class="u-script" type="text/javascript" src="../js/nicepage.js" defer=""></script>
   <meta name="generator" content="Nicepage 5.0.7, nicepage.com">
   <link id="u-theme-google-font" rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    href="https://fonts.googleapis.com/css?family=Prompt:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" charset="utf-8"></script>
   <script type="application/ld+json">{
@@ -174,19 +175,15 @@
       <!-- <p class="u-text u-text-2">Sample text. Click to select the text box. Click again or double click to start editing the text.</p> -->
       <div class="container">
         <div class="card-content">
-          <div class="card-content" id="card-content">
-            <!--<div class="card">
-                <div class="card-image" data-href="View-Document.html"><img src="images/default-image.jpg"></div>
-                <div class="card-info"><h3>Name Collection</h3></div>
-              </div>-->
+          <div class="row" id="card-content"> <!-- Card - content -->
           </div>
-          <div class="pagination" id="pagination">
-            <li class="page-item previous-page" id="prevButton"><a class="page-link" href="#">Prev</a></li>
-            <li class="page-item current-page active"><a class="page-link" id="current-page">1</a></li>
-            <li class="page-item next-page" id="nextButton"><a class="page-link" href="#">Next</a></li>
+          <div class="paginate" id="paginate">
+            <a class="page-item previous-page page-link" id="prevButton" href="#">Prev</a>
+            <a class="page-item current-page  page-link active" id="current-page">1</a>
+            <a class="page-item next-page page-link" id="nextButton" href="#">Next</a>
           </div>
           <div class="back-button" id="back-button">
-            <li class="page-item back" id="back"><a class="page-link">Back</a></li>
+            <a class="page-item back page-link" id="back">Back</a>
           </div>
           <div class="tags-list" id="tags-list">
             <!--<div class="tags">
