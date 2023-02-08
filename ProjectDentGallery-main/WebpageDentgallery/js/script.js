@@ -50,7 +50,7 @@ async function getTagsData() {
 //Display albums and pagination. (responsive)          
 async function displayAlbum (datas, page = 1) { 
   var title = document.getElementById("image-title");
-  title.innerHTML = "IMAGE COLLECTION";
+  title.innerHTML = "VIDEO COLLECTION";
 
   if(page == 1) {
     prevButton.className = 'previous-page-disabled';
@@ -70,13 +70,13 @@ async function displayAlbum (datas, page = 1) {
 
     if(index >= start && index < end) return true;
   }).map(album => {
-    return `<div class="card">
+    return `<div class="col-md-12 col-lg-4"><div class="card">
     <div class="card-image" data-href="#" onClick="displayPictures(this.id)" id="${(album.albums_id)}" ><img class="pics" src="${(album.cover)}" alt="${(album.album_name)}"></div>
-    <div class="card-info" id="card"><h5 class="album-title">${(album.album_name)}</h5></div></div>`;
+    <div class="card-info" id="card"><h6 class="album-title">${(album.album_name)}</h6></div></div></div>`;
   }).join('');
   document.getElementById("card-content").innerHTML= albumData;
   document.getElementById("back-button").style.display= "none";
-  document.getElementById("pagination").style.display= "inline-block";
+  document.getElementById("paginate").style.display= "inline-block";
   //Change the album name corresponding to where the user clicked into.
   var cards = document.getElementsByClassName("pics");
   for(var i=0;i<cards.length;i++) {
@@ -94,13 +94,13 @@ async function displayPictures(id) {
   var pictureData = "";
 
   arrayViewData.forEach(picture => {
-    pictureData += `<div class="card-pictures">`
+    pictureData += `<div class="col-md-12 col-lg-4"><div class="card-pictures">`
     pictureData += `<div class="view-pictures"><img class="pic" src="${(picture.images_name)}"></div></div>`
     pictureData += `<div class="modal" id="myModal"><span class="close">&times;</span>`
-    pictureData += `<img class="modal-content" id="thisImg"></div>`
+    pictureData += `<img class="modal-content" id="thisImg"></div></div>`
   })
   document.getElementById("card-content").innerHTML= pictureData;
-  document.getElementById("pagination").style.display= "none";
+  document.getElementById("paginate").style.display= "none";
   document.getElementById("back-button").style.display= "inline-block";
 
   //View individual pictures.
@@ -150,13 +150,13 @@ async function displayTags() {
 }
 async function displayAlbumFromTag (datas) { 
   const albumData = datas.map(album => {
-    return `<div class="card">
+    return `<div class="col-md-12 col-lg-4"><div class="card">
     <div class="card-image" data-href="#" onClick="displayPictures(this.id)" id="${(album.albums_id)}" ><img class="pics" src="${(album.cover)}" alt="${(album.album_name)}"></div>
-    <div class="card-info" id="card"><h5 class="album-title">${(album.album_name)}</h5></div></div>`;
+    <div class="card-info" id="card"><h5 class="album-title">${(album.album_name)}</h5></div></div></div>`;
   }).join('');
   document.getElementById("card-content").innerHTML= albumData;
   document.getElementById("back-button").style.display= "inline-block";
-  document.getElementById("pagination").style.display= "none";
+  document.getElementById("paginate").style.display= "none";
   //Change the album name corresponding to where the user clicked into.
   var cards = document.getElementsByClassName("pics");
   for(var i=0;i<cards.length;i++) {
