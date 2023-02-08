@@ -635,7 +635,7 @@ body::after {
   background-repeat: no-repeat;
   background-attachment: fixed;  
   background-size: cover;
-  opacity: 0.09;
+  opacity: 0;
   top: 0;
   left: 0;
   bottom: 0;

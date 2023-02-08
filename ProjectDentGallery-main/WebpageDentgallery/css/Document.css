@@ -355,20 +355,20 @@
   line-height: 45px;
 }
 .previous-page{
-  background-color: darkslategrey;
+  background-color: rgb(51, 51, 51);
   width: 80px;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .next-page{
-  background-color: darkslategrey;
+  background-color: rgb(51, 51, 51);
   width: 80px;
   border-radius: 5px;
   cursor: pointer;
 }
 .previous-page:hover {
-  background-color: rgb(56, 56, 56);
+  background-color: rgb(143, 143, 143);
   color: white;
 }
 .previous-page-disabled {
@@ -379,7 +379,7 @@
   pointer-events: none;
 }
 .next-page:hover {
-  background-color: rgb(56, 56, 56);
+  background-color: rgb(143, 143, 143);
   color: white;
 }
 .next-page-disabled {
@@ -390,14 +390,14 @@
   pointer-events: none;
 }
 .current-page {
-  background-color: darkslategrey;
+  background-color: rgb(51, 51, 51);
   width: 60px;
   border-radius: 50%;
   pointer-events: none;
   cursor: default;
 }
 .active {
-  background-color: darkslategrey;
+  background-color: rgb(51, 51, 51);
 }
 .disabled {
   background: rgb(231, 218, 218);
