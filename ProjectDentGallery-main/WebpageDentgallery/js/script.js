@@ -50,7 +50,7 @@ async function getTagsData() {
 //Display albums and pagination. (responsive)          
 async function displayAlbum (datas, page = 1) { 
   var title = document.getElementById("image-title");
-  title.innerHTML = "VIDEO COLLECTION";
+  title.innerHTML = "IMAGE COLLECTION";
 
   if(page == 1) {
     prevButton.className = 'previous-page-disabled';
