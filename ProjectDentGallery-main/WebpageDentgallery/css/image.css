@@ -433,13 +433,13 @@
   opacity: 0.8;
 }
 .back{
-  background-color: darkslategrey;
+  background-color: rgb(51, 51, 51);
   width: 80px;
   border-radius: 5px;
   cursor: pointer;
 }
 .back:hover {
-  background-color: rgb(56, 56, 56);
+  background-color: rgb(143, 143, 143);
   color: #fff!important;
 }
 .back-button {
