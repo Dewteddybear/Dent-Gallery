@@ -50,7 +50,12 @@ async function getTagsData() {
 //Display albums and pagination. (responsive)          
 async function displayAlbum (datas, page = 1) { 
   var title = document.getElementById("image-title");
+  var subTitle = document.getElementById("album-details");
+  var tagsTitle = document.getElementById("sub-tag");
+
   title.innerHTML = "DOCUMENT COLLECTION";
+  subTitle.innerHTML = "";
+  tagsTitle.innerHTML = "";
 
   if(page == 1) {
     prevButton.className = 'previous-page-disabled';
@@ -70,19 +75,20 @@ async function displayAlbum (datas, page = 1) {
 
     if(index >= start && index < end) return true;
   }).map(album => {
-    return `<div class="col-md-12 col-lg-4"><div class="card">
-    <div class="card-image" data-href="#" onClick="displayPictures(this.id)" id="${(album.albums_id)}" ><img class="pics" src="${(album.cover)}" alt="${(album.album_name)}"></div>
+    return `<div class="col-md-12 col-lg-4" onClick="displayPictures(this.id)" id="${(album.albums_id)}"><div class="card" title="${(album.album_name)}" id="${(album.event_date)} ${(album.location_name)}" data-href="#">
+    <div class="card-image"><img src="${(album.cover)}"></div>
     <div class="card-info" id="card"><h6 class="album-title">${(album.album_name)}</h6></div></div></div>`;
   }).join('');
   document.getElementById("card-content").innerHTML= albumData;
   document.getElementById("back-button").style.display= "none";
   document.getElementById("paginate").style.display= "inline-block";
   //Change the album name corresponding to where the user clicked into.
-  var cards = document.getElementsByClassName("pics");
+  var cards = document.getElementsByClassName("card");
   for(var i=0;i<cards.length;i++) {
     var titleCard = cards[i];
     titleCard.onclick = function() {
-      title.innerHTML = this.alt;
+      title.innerHTML = this.title;
+      subTitle.innerHTML = this.id;
     }
   }
 }
@@ -138,7 +144,6 @@ async function displayTags() {
     var tagsButton = tags[i]
     tagsButton.onclick = function() {
       var input = this.id;
-      console.log(input);
       title.innerHTML = "#"+input;
       const filterAlbumsByTag = data.filter(album => {
         return album.tags.some(row => row.tags_name.includes(input));
@@ -148,25 +153,30 @@ async function displayTags() {
     }
   }
 }
+
 async function displayAlbumFromTag (datas) { 
+  var title = document.getElementById("image-title");
+  var subTitle = document.getElementById("album-details");
+  subTitle.innerHTML = "";
+
   const albumData = datas.map(album => {
-    return `<div class="col-md-12 col-lg-4"><div class="card">
-    <div class="card-image" data-href="#" onClick="displayPictures(this.id)" id="${(album.albums_id)}" ><img class="pics" src="${(album.cover)}" alt="${(album.album_name)}"></div>
-    <div class="card-info" id="card"><h5 class="album-title">${(album.album_name)}</h5></div></div></div>`;
+    return `<div class="col-md-12 col-lg-4" onClick="displayPictures(this.id)" id="${(album.albums_id)}"><div class="card" title="${(album.album_name)}" id="${(album.event_date)} ${(album.location_name)}" data-href="#">
+    <div class="card-image"><img src="${(album.cover)}"></div>
+    <div class="card-info" id="card"><h6 class="album-title">${(album.album_name)}</h6></div></div></div>`;
   }).join('');
   document.getElementById("card-content").innerHTML= albumData;
   document.getElementById("back-button").style.display= "inline-block";
   document.getElementById("paginate").style.display= "none";
   //Change the album name corresponding to where the user clicked into.
-  var cards = document.getElementsByClassName("pics");
+  var cards = document.getElementsByClassName("card");
   for(var i=0;i<cards.length;i++) {
     var titleCard = cards[i];
     titleCard.onclick = function() {
-      title.innerHTML = this.alt;
+      title.innerHTML = this.title;
+      subTitle.innerHTML = this.id;
     }
   }
 }
-
 displayTags();
 
 //Pagination navigation functions.
