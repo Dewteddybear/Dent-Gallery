@@ -75,7 +75,7 @@ async function displayAlbum (datas, page = 1) {
 
     if(index >= start && index < end) return true;
   }).map(album => {
-    return `<div class="col-md-12 col-lg-4" onClick="displayPictures(this.id)" id="${(album.albums_id)}"><div class="card" title="${(album.album_name)}" id="${(album.event_date)} ${(album.location_name)}" data-href="#">
+    return `<div class="col-md-12 col-lg-4" onClick="displayPictures(this.id)" id="${(album.albums_id)}"><div class="card" title="${(album.album_name)}" id=" ${(album.album_details)}   ${(album.event_date)} ${(album.location_name)}" data-href="#" >
     <div class="card-image"><img src="${(album.cover)}"></div>
     <div class="card-info" id="card"><h6 class="album-title">${(album.album_name)}</h6></div></div></div>`;
   }).join('');
@@ -100,10 +100,10 @@ async function displayPictures(id) {
   var pictureData = "";
 
   arrayViewData.forEach(picture => {
-    pictureData += `<div class="col-md-12 col-lg-4"><div class="card-pictures">`
-    pictureData += `<div class="view-pictures"><img class="pic" src="${(picture.images_name)}"></div></div>`
-    pictureData += `<div class="modal" id="myModal"><span class="close">&times;</span>`
-    pictureData += `<img class="modal-content" id="thisImg"></div></div>`
+    pictureData += `<div class="col-md-12 col-lg-4 "><div class="card-pictures ">`
+    pictureData += `<div class="view-pictures "><img class="pic" src="${(picture.images_name)}"></div></div>`
+    pictureData += `<div class="modal " id="myModal"><span class="close">&times;</span>`
+    pictureData += `<img class="modal-content " id="thisImg"></div></div>`
   })
   document.getElementById("card-content").innerHTML= pictureData;
   document.getElementById("paginate").style.display= "none";
