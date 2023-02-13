@@ -125,6 +125,16 @@ async function displayPictures(id) {
   span.onclick = function() {
     modal.style.display = "none"; 
   }
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      modal.style.display = "none";
+    }
+  })
 }
 
 //Display tags.
